@@ -14,5 +14,5 @@ const titleFontSize = {
 
 export const TitleStyled = styled(Title)<iTitleStyledProps>`
   font-weight: 700;
-  ${({tag}) => titleFontSize[tag]};
+  ${({titleTag}) => titleFontSize[titleTag]};
 `
