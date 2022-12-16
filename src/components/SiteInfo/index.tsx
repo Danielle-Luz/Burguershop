@@ -12,7 +12,7 @@ export function SiteInfo() {
         <div>
           <img src={bag} alt="ícone de sacola" />
         </div>
-        <TextStyled tag="p" weight={600}>A vida é como um sanduíche, é preciso recheá-la com os <strong>melhores</strong> ingredientes.</TextStyled>
+        <TextStyled tag="p" weight={400}>A vida é como um sanduíche, é preciso recheá-la com os <strong>melhores</strong> ingredientes.</TextStyled>
       </article>
     </StyledSiteInfo>
   );
