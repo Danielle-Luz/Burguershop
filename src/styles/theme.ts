@@ -11,5 +11,6 @@ export const theme = {
       sucess: "#168821",
       information: "#155BCB"
     }
-  }
+  },
+  fontSizes: ["26px", "22px", "18px", "16px", "14px", "12px"]
 }
