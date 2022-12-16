@@ -1,5 +1,3 @@
-import { HTMLAttributes } from "react";
-
 interface iTitleProps {
   children: React.ReactNode;
   tag: "h1" | "h2" | "h3";
