@@ -1,4 +1,4 @@
-interface iTheme {
+export interface iTheme {
   colors: {
     brand: {
       primary: string[],
