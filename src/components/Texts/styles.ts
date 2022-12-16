@@ -27,7 +27,7 @@ export const TitleStyled = styled(Title)<iTitleProps>`
 `
 
 export const TextStyled = styled(Text)<iTextProps>`
-  color: ${({theme, gray}) => theme.colors.gray[gray]};
+  color: ${({theme, gray}: iTextProps) => theme.colors.gray[gray]};
   font-size: ${({theme, tag}) => theme.fontSizes[tag === "p" ? 4 : 5]};
   font-weight: ${({weight}) => weight};
   line-height: 150%;
