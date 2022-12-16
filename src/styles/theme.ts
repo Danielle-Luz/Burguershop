@@ -1,4 +1,21 @@
-export const theme = {
+interface iTheme {
+  colors: {
+    brand: {
+      primary: string[],
+      secondary: string[]
+    },
+    gray: string[],
+    status: {
+      negative: string,
+      warning: string,
+      sucess: string,
+      information: string
+    }
+  },
+  fontSizes: string[]
+}
+
+export const theme: iTheme = {
   colors: {
     brand: {
       primary: ["#EB5757", "F95D5D"],
