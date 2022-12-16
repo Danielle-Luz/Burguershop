@@ -9,6 +9,7 @@ interface iTextProps {
   children: React.ReactNode;
   tag: "p" | "label";
   weight: 400 | 600;
+  gray: 0 | 1 | 2 | 3;
 }
 
 export function Title({children, tag, className}: iTitleProps) {
@@ -17,7 +18,7 @@ export function Title({children, tag, className}: iTitleProps) {
   else return <h3 className={className}>{children}</h3>
 }
 
-export function Text({children, tag, className}: iTextProps) {
+export function Text({children, tag, className, gray}: iTextProps) {
   if (tag === "p")  return <p className={className}>{children}</p>;
   else  return <label className={className}>{children}</label>
 }

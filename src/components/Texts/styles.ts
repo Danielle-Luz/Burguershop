@@ -11,6 +11,7 @@ interface iTextProps {
   theme: iTheme;
   tag: "p" | "label";
   weight: 400 | 600;
+  gray: 0 | 1 | 2 | 3;
 }
 
 
@@ -26,6 +27,7 @@ export const TitleStyled = styled(Title)<iTitleProps>`
 `
 
 export const TextStyled = styled(Text)<iTextProps>`
+  color: ${({theme, gray}) => theme.colors.gray[gray]};
   font-size: ${({theme, tag}) => theme.fontSizes[tag === "p" ? 4 : 5]};
   font-weight: ${({weight}) => weight};
   line-height: 150%;

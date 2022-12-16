@@ -30,5 +30,9 @@ export const StyledSiteInfo = styled.article`
       justify-content: center;
       padding: 16px 20px;
     }
+
+    strong {
+      color: ${({theme}) => theme.colors.gray[0]};
+    }
   }
 `
