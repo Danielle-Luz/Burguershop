@@ -12,14 +12,15 @@ export interface iTheme {
       information: string
     }
   },
-  fontSizes: string[]
+  fontSizes: string[],
+  radius: string[]
 }
 
 export const theme: iTheme = {
   colors: {
     brand: {
       primary: ["#EB5757", "F95D5D"],
-      secondary: ["#27AE60", "#93D7AF"]
+      secondary: ["#27AE60", "#93D7AF", "#27ae6010"]
     },
     gray: ["#333333", "#828282", "#E0E0E0", "#F5F5F5"],
     status: {
@@ -29,5 +30,6 @@ export const theme: iTheme = {
       information: "#155BCB"
     }
   },
-  fontSizes: ["26px", "22px", "18px", "16px", "14px", "12px"]
+  fontSizes: ["26px", "22px", "18px", "16px", "14px", "12px"],
+  radius: ["5px", "8px"]
 }

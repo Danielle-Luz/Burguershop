@@ -16,6 +16,6 @@ export function Title({children, tag}: iTitleProps) {
 }
 
 export function Text({children, tag}: iTextProps) {
-  if (tag === "p")  return <>{children}</>;
+  if (tag === "p")  return <p>{children}</p>;
   else  return <label>{children}</label>
 }
