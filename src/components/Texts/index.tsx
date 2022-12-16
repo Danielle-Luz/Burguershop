@@ -1,19 +1,24 @@
 import { JsxElement } from "typescript";
 import { TitleStyled } from "./styles";
 
-interface iTitleAndTextProps {
+interface iTitleProps {
   children: React.ReactNode;
-  titleTag: "h1" | "h2" | "h3";
-  textTag: "p" | "label";
+  tag: "h1" | "h2" | "h3";
 }
 
-export function Title({children, titleTag}: iTitleAndTextProps) {
-  if (titleTag === "h1")  return <h1>{children}</h1> 
-  else if (titleTag === "h2")  return <h2>{children}</h2>
+interface iTextProps {
+  children: React.ReactNode;
+  tag: "p" | "label";
+  weight: 400 | 600;
+}
+
+export function Title({children, tag}: iTitleProps) {
+  if (tag === "h1")  return <h1>{children}</h1> 
+  else if (tag === "h2")  return <h2>{children}</h2>
   else return <h3>{children}</h3>
 }
 
-export function Text({children, textTag}: iTitleAndTextProps) {
-  if (textTag === "p")  return <p>{children}</p> 
+export function Text({children, tag, weight}: iTextProps) {
+  if (tag === "p")  return <p>{children}</p> 
   else  return <label>{children}</label>
 }
