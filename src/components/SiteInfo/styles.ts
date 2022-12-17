@@ -7,10 +7,21 @@ export const StyledSiteInfo = styled.article`
   max-width: 377px;
   width: 100%;
 
-  & > img {
+  & > img:nth-of-type(1) {
     max-width: 230px;
     min-width: 100px;
     width: 100%;
+  }
+
+  & > img:nth-of-type(2) {
+      width: 181px;
+      display: none;
+  }
+  
+  @media(min-width: 875px) {
+    & > img:nth-of-type(2) {
+      display: block;
+    }
   }
 
   article {
