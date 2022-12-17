@@ -29,7 +29,7 @@ export const RegisterStyled = styled.div`
     }
   }
 
-  div {
+  article > div {
     display: flex;
     justify-content: space-between;
   }

@@ -1,8 +1,10 @@
+import { FieldError } from "react-hook-form";
 import styled from "styled-components";
 import { iTheme } from "../../../styles/theme";
 
 interface iInputWrapperProps {
   theme: iTheme;
+  error: FieldError | undefined;
 }
 
 export const InputWrapperStyled = styled.div`
@@ -13,6 +15,7 @@ export const InputWrapperStyled = styled.div`
     border-radius: ${({theme}: iInputWrapperProps) => theme.radius[1]};
     padding: 20.5px 15px;
     width: 100%;
+    outline: ${({error, theme}) => error ? "1px solid " + theme.colors.status.negative : "none"};
 
     &:focus {
       background-color: white;
@@ -35,5 +38,12 @@ export const InputWrapperStyled = styled.div`
     transition: top 0.5s, font-size 0.5s;
     position: absolute;
     pointer-events: none;
+  }
+
+  p {
+    color: ${({theme}: iInputWrapperProps) => theme.colors.status.negative};
+    font-size: ${({theme}: iInputWrapperProps) => theme.fontSizes[5]};
+    height: 16px;
+    margin-top: 9px;
   }
 `
