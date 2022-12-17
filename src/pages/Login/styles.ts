@@ -26,10 +26,5 @@ export const LoginStyled = styled.div`
   @media(min-width: 875px) {
     flex-direction: row-reverse;
     gap: 78px;
-
-    & > article:nth-child(1) {
-      max-width: 377px;
-      width: 100%;
-    }
   }
 `
