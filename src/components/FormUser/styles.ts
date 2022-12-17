@@ -8,7 +8,7 @@ interface iFormUserStyledProps {
 export const FormUserStyled = styled.article`
   border: 2px solid ${({theme}: iFormUserStyledProps) => theme.colors.gray[3]};
   border-radius: ${({theme}: iFormUserStyledProps) => theme.radius[1]};
-  max-width: 452px;
+  max-width: 500px;
   padding: 21px 24px;
   width: 100%;
 

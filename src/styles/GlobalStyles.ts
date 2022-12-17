@@ -16,6 +16,7 @@ export const GlobalStyles = createGlobalStyle`
     border: none;
     cursor: pointer;
     text-align: center;
+    transition: background-color 0.5s;
   }
 
   input {
