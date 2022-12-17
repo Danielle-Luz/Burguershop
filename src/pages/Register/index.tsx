@@ -1,10 +1,8 @@
-import { Link } from "react-router-dom";
 import { ButtonStyled } from "../../components/Button/styles";
 import { InputWrapper } from "../../components/FormUser/InputWrapper";
 import { FormUserStyled } from "../../components/FormUser/styles";
 import { SiteInfo } from "../../components/SiteInfo";
 import { TitleStyled } from "../../components/Texts/styles";
-import { Login } from "../Login";
 import { LoginLinkStyled, RegisterStyled } from "./styles";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";

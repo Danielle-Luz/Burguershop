@@ -10,7 +10,7 @@ interface iInputWrapperProps {
 export function InputWrapper({label, type, register}: iInputWrapperProps) {
   return (
     <InputWrapperStyled>
-      <input type={type} {...register} />
+      <input type={type} {...register} autoComplete="off" />
       <label>{label}</label>
     </InputWrapperStyled>
   );
