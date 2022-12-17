@@ -4,8 +4,16 @@ import { FormUserStyled } from "../../components/FormUser/styles";
 import { SiteInfo } from "../../components/SiteInfo";
 import { TextStyled, TitleStyled } from "../../components/Texts/styles";
 import { LoginStyled } from "./styles";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { loginSchema } from "./loginSchema";
 
 export function Login() {
+  const {register, handleSubmit, formState:{errors}} = useForm({
+    mode: "onBlur",
+    resolver: yupResolver(loginSchema)
+  })
+
   return (
     <LoginStyled>
       <SiteInfo />
