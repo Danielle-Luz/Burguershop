@@ -39,4 +39,8 @@ export const LoginLinkStyled = styled(Link)`
     color: ${({theme}: iRegisterStyledProps) => theme.colors.gray[1]};
     font-size: ${({theme}: iRegisterStyledProps) => theme.fontSizes[5]};
     text-decoration: underline;
+
+    &:hover {
+      color: ${({theme}: iRegisterStyledProps) => theme.colors.brand.secondary[0]};
+    }
 `
