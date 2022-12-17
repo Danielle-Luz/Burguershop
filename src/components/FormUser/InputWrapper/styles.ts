@@ -6,9 +6,11 @@ interface iInputWrapperProps {
 }
 
 export const InputWrapperStyled = styled.div`
+  position: relative;
+
   input {
     background-color: ${({theme}: iInputWrapperProps) => theme.colors.gray[3]};
-    border-radius: ${({theme}: iButtonStyledProps) => theme.radius[1]};
+    border-radius: ${({theme}: iInputWrapperProps) => theme.radius[1]};
     padding: 20.5px 15px;
 
     &:focus {
@@ -16,9 +18,10 @@ export const InputWrapperStyled = styled.div`
       outline: 2px solid black;
 
       & + label {
-        border: 2px solid white;
+        background-color: white;
+        border: 3px solid white;
         font-size: ${({theme}: iInputWrapperProps) => theme.fontSizes[5]};
-        transform: translateY(50px);
+        top: -10px;
       }
     }
   }
@@ -26,6 +29,9 @@ export const InputWrapperStyled = styled.div`
   label {
     color: ${({theme}: iInputWrapperProps) => theme.colors.gray[1]};
     font-size: ${({theme}: iInputWrapperProps) => theme.fontSizes[3]};
-    transform: translateY(-50px);
+    left: 15px;
+    top: 16px;
+    transition: 0.5s;
+    position: absolute;
   }
 `
