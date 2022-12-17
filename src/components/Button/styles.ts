@@ -4,10 +4,10 @@ import { iTheme } from "../../styles/theme"
 
 interface iButtonStyledProps {
   theme: iTheme;
-  style: "brand" | "gray" | "add";
+  buttonStyle: "brand" | "gray" | "add";
 }
 
-const buttonStyle = {
+const buttonStyleType = {
   brand: css`
     background-color: ${({theme}: iButtonStyledProps) => theme.colors.brand.secondary[0]};
     color: white;
@@ -35,11 +35,11 @@ const buttonStyle = {
   `
 }
 
-export const ButtonStyled = styled(Button)`
+export const ButtonStyled = styled(Button)<iButtonStyledProps>`
   border-radius: ${({theme}: iButtonStyledProps) => theme.radius[1]};
   font-size: ${({theme}: iButtonStyledProps) => theme.fontSizes[3]};
   font-weight: 600;
   padding: 16px;
 
-  ${({style}: iButtonStyledProps) => buttonStyle[style]}
+  ${({buttonStyle}: iButtonStyledProps) => buttonStyleType[buttonStyle]}
 `
