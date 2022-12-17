@@ -16,6 +16,7 @@ export function Login() {
           <InputWrapper label="Senha" type="password" />
           <ButtonStyled type="button" buttonStyle="brand">Logar</ButtonStyled>
           <TextStyled tag="p" gray={1} weight={400}>Crie sua conta para saborear muitas delícias e matar sua fome!</TextStyled>
+          <ButtonStyled type="button" buttonStyle="gray">Logar</ButtonStyled>
         </form>
       </FormUserStyled>
     </LoginStyled>
