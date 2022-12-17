@@ -30,10 +30,10 @@ export function Register() {
           <LoginLinkStyled to="/login">Retornar para o login</LoginLinkStyled>
         </div>
         <form noValidate>
-          <InputWrapper label="Nome" type="text" register={{...register("name")}} />
-          <InputWrapper label="Email" type="email" register={{...register("email")}} />
-          <InputWrapper label="Senha" type="password" register={{...register("password")}} />
-          <InputWrapper label="Confirmar senha" type="password" register={{...register("confirmPassword")}} />
+          <InputWrapper label="Nome" type="text" register={register("name")} />
+          <InputWrapper label="Email" type="email" register={register("email")} />
+          <InputWrapper label="Senha" type="password" register={register("password")} />
+          <InputWrapper label="Confirmar senha" type="password" register={register("confirmPassword")} />
           <ButtonStyled type="button" buttonStyle="gray">Cadastrar</ButtonStyled>
         </form>
       </FormUserStyled>
