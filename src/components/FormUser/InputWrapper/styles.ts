@@ -7,11 +7,12 @@ interface iInputWrapperProps {
 
 export const InputWrapperStyled = styled.div`
   position: relative;
-
+  
   input {
     background-color: ${({theme}: iInputWrapperProps) => theme.colors.gray[3]};
     border-radius: ${({theme}: iInputWrapperProps) => theme.radius[1]};
     padding: 20.5px 15px;
+    width: 100%;
 
     &:focus {
       background-color: white;
