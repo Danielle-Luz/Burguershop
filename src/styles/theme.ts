@@ -22,7 +22,7 @@ export const theme: iTheme = {
       primary: ["#EB5757", "F95D5D"],
       secondary: ["#27AE60", "#93D7AF", "#27ae6010"]
     },
-    gray: ["#333333", "#828282", "#E0E0E0", "#F5F5F5"],
+    gray: ["#333333", "#828282", "#E0E0E0", "#F5F5F5", "#BDBDBD"],
     status: {
       negative: "#E60000",
       warning: "#FFCD07",
