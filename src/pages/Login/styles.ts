@@ -14,10 +14,13 @@ export const LoginStyled = styled.div`
   }
 
   & > p {
-    text-align: center;
     max-width: 328px;
     margin: 0 auto;
     width: 100%;
+  }
+  
+  form > p {
+    text-align: center;
   }
 
   @media(min-width: 875px) {
