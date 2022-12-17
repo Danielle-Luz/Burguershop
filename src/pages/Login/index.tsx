@@ -24,7 +24,7 @@ export function Login() {
       <SiteInfo />
       <FormUserStyled>
         <TitleStyled tag="h3">Login</TitleStyled>
-        <form>
+        <form noValidate>
           <InputWrapper label="Email" type="email" register={{...register("email")}} />
           <InputWrapper label="Senha" type="password" register={{...register("password")}} />
           <ButtonStyled type="button" buttonStyle="brand">Logar</ButtonStyled>

@@ -6,8 +6,23 @@ import { SiteInfo } from "../../components/SiteInfo";
 import { TitleStyled } from "../../components/Texts/styles";
 import { Login } from "../Login";
 import { LoginLinkStyled, RegisterStyled } from "./styles";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { registerSchema } from "./registerSchema";
+
+interface iRegisterFormFields {
+  name: "string";
+  email: "string";
+  password: "string";
+  confirmPassword: "string";
+}
 
 export function Register() {
+  const {register, handleSubmit, formState:{errors}} = useForm<iRegisterFormFields>({
+    mode: "onBlur",
+    resolver: yupResolver(registerSchema)
+  });
+
   return (
   <RegisterStyled>
       <SiteInfo />
@@ -17,10 +32,10 @@ export function Register() {
           <LoginLinkStyled to="/login">Retornar para o login</LoginLinkStyled>
         </div>
         <form noValidate>
-          <InputWrapper label="Nome" type="text" />
-          <InputWrapper label="Email" type="email" />
-          <InputWrapper label="Senha" type="password" />
-          <InputWrapper label="Confirmar senha" type="password" />
+          <InputWrapper label="Nome" type="text" register={{...register("name")}} />
+          <InputWrapper label="Email" type="email" register={{...register("email")}} />
+          <InputWrapper label="Senha" type="password" register={{...register("password")}} />
+          <InputWrapper label="Confirmar senha" type="password" register={{...register("confirmPassword")}} />
           <ButtonStyled type="button" buttonStyle="gray">Cadastrar</ButtonStyled>
         </form>
       </FormUserStyled>
