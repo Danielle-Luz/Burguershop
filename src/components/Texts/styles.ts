@@ -1,4 +1,3 @@
-import { LabelHTMLAttributes } from "react";
 import styled, { css } from "styled-components";
 import { Title, Text } from ".";
 import { iTheme } from "../../styles/theme";
