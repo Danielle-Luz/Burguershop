@@ -40,6 +40,7 @@ export const ButtonStyled = styled(Button)<iButtonStyledProps>`
   font-size: ${({theme}: iButtonStyledProps) => theme.fontSizes[3]};
   font-weight: 600;
   padding: 16px;
+  text-align: center;
 
   ${({buttonStyle}: iButtonStyledProps) => buttonStyleType[buttonStyle]}
 `

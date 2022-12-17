@@ -12,7 +12,7 @@ export function Button({className, children, type, buttonStyle, to}: iButton) {
   return (
     <>
       {
-        to ? <Link to={to} className={className}></Link> : <button className={className}>{children}</button>
+        to ? <Link to={to} className={className}>{children}</Link> : <button className={className}>{children}</button>
       }
     </>
   );

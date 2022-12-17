@@ -22,6 +22,9 @@ export const StyledSiteInfo = styled.article`
     & > img:nth-of-type(2) {
       display: block;
     }
+
+    max-width: 377px;
+    width: 100%;
   }
 
   article {
