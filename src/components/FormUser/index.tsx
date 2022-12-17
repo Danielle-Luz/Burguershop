@@ -6,6 +6,7 @@ export function FormUser() {
     <>
       <FormUserStyled>
         <InputWrapper label="email" type="email" />
+        <InputWrapper label="email" type="email" />
       </FormUserStyled>
     </>
   );
