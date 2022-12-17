@@ -15,7 +15,7 @@ export const FormUserStyled = styled.article`
   form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 14px;
     margin-top: 15px;
     width: 100%;
   }

@@ -15,6 +15,7 @@ export const InputWrapperStyled = styled.div`
     border-radius: ${({theme}: iInputWrapperProps) => theme.radius[1]};
     padding: 20.5px 15px;
     width: 100%;
+    outline: ${({error, theme}) => error ? "1px solid " + theme.colors.status.negative : "none"};
 
     &:focus {
       background-color: white;
@@ -42,6 +43,7 @@ export const InputWrapperStyled = styled.div`
   p {
     color: ${({theme}: iInputWrapperProps) => theme.colors.status.negative};
     font-size: ${({theme}: iInputWrapperProps) => theme.fontSizes[5]};
+    height: 16px;
     margin-top: 9px;
   }
 `
