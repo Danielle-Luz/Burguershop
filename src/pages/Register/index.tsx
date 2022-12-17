@@ -16,9 +16,11 @@ export function Register() {
           <TitleStyled tag="h3">Cadastro</TitleStyled>
           <LoginLinkStyled to="/login">Retornar para o login</LoginLinkStyled>
         </div>
-        <form>
+        <form noValidate>
+          <InputWrapper label="Nome" type="text" />
           <InputWrapper label="Email" type="email" />
           <InputWrapper label="Senha" type="password" />
+          <InputWrapper label="Confirmar senha" type="password" />
           <ButtonStyled type="button" buttonStyle="gray">Cadastrar</ButtonStyled>
         </form>
       </FormUserStyled>
