@@ -7,7 +7,7 @@ import { RegisterStyled } from "./styles";
 
 export function Register() {
   return (
-    <RegisterStyled>
+  <RegisterStyled>
       <SiteInfo />
       <FormUserStyled>
         <TitleStyled tag="h3">Login</TitleStyled>
