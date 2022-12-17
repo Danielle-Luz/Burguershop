@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const RegisterStyled = styled.article`
   display: flex;
   gap: 146px;
+  padding: 20px;
   
   & > article:nth-of-type(1) {
     display: none;
@@ -10,7 +11,7 @@ export const RegisterStyled = styled.article`
 
   @media(min-width: 875px) {
     & > article:nth-of-type(1) {
-      display: block;
+      display: flex;
     }
   }
 `
