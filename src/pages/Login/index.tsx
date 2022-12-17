@@ -1,7 +1,7 @@
 import { InputWrapper } from "../../components/FormUser/InputWrapper";
 import { FormUserStyled } from "../../components/FormUser/styles";
 import { SiteInfo } from "../../components/SiteInfo";
-import { TitleStyled } from "../../components/Texts/styles";
+import { TextStyled, TitleStyled } from "../../components/Texts/styles";
 import { LoginStyled } from "./styles";
 
 export function Login() {
@@ -13,6 +13,7 @@ export function Login() {
         <form>
           <InputWrapper label="Email" type="email" />
           <InputWrapper label="Senha" type="password" />
+          <TextStyled tag="p" gray={1} weight={400}>Crie sua conta para saborear muitas delícias e matar sua fome!</TextStyled>
         </form>
       </FormUserStyled>
     </LoginStyled>

@@ -13,6 +13,13 @@ export const LoginStyled = styled.div`
     width: 100%;
   }
 
+  p {
+    text-align: center;
+    max-width: 328px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
   @media(min-width: 875px) {
     flex-direction: row-reverse;
     gap: 78px;
