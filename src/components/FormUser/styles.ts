@@ -12,6 +12,10 @@ export const FormUserStyled = styled.article`
   padding: 21px 24px;
   width: 100%;
 
+  h3 {
+    margin-bottom: 20px;
+  }
+
   form {
     display: flex;
     flex-direction: column;
