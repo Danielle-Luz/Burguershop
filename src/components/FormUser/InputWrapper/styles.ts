@@ -32,7 +32,8 @@ export const InputWrapperStyled = styled.div`
     font-size: ${({theme}: iInputWrapperProps) => theme.fontSizes[3]};
     left: 15px;
     top: 16px;
-    transition: 0.5s;
+    transition: top 0.5s, font-size 0.5s;
     position: absolute;
+    pointer-events: none;
   }
 `
