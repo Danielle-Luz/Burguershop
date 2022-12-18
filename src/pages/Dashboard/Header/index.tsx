@@ -6,8 +6,10 @@ import cartIcon from "../../../assets/imgs/cart.svg";
 import quitIcon from "../../../assets/imgs/quit.svg";
 import { SearchInput } from "../SearchInput";
 import { useState } from "react";
+import { useNavigate } from "react-router";
 
 export function Header() {
+  const navigate = useNavigate();
   const [toggleSearchBar, setToggleSearchBar] = useState(false);
 
   return ( 
@@ -22,7 +24,7 @@ export function Header() {
           <button>
             <img src={cartIcon} alt="ícone de carrinho" />
           </button>
-          <button>
+          <button onClick={() => navigate("/user/login")}>
             <img src={quitIcon} alt="ícone de saída" />
           </button>
         </div>
