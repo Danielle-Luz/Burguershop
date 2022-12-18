@@ -18,7 +18,9 @@ export function Dashboard() {
     <>
       <Header />
       <ProductsListWrapperStyled>
-        
+        <ul>
+          
+        </ul>
       </ProductsListWrapperStyled>
     </>
   );

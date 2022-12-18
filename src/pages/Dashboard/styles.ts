@@ -10,15 +10,22 @@ export const ContainerStyled = styled.div`
   }
 `
 
-export const ProductsListWrapperStyled = styled.div`
-  display: flex;
-  overflow-x: auto;
+export const ProductsListWrapperStyled = styled.main`
   max-width: none;
   padding: 26px 0 26px 16px;
   width: 100%;
+  
+  ul {
+    display: flex;
+    overflow-x: auto;
+    width: 100%;
+  }
 
   @media (min-width: 700px) {
-    flex-wrap: wrap;
+    ul {
+      flex-wrap: wrap;
+    }
+    
     max-width: 1368px;
     padding: 26px 16px;
   }
