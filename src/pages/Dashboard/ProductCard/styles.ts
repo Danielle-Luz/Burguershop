@@ -12,6 +12,10 @@ export const ProductCardStyled = styled.li`
   max-width: 300px;
   width: 100%;
 
+  h3 {
+    color: ${({theme}: iProductCardProps) => theme.colors.gray[0]};
+  }
+
   &:hover {
     border-color: ${({theme}: iProductCardProps) => theme.colors.brand.secondary[0]};
 
