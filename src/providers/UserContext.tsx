@@ -15,9 +15,9 @@ export const UserContext = createContext({} as iUserProviederValues);
 export function UserProvider() {
   const navigate = useNavigate();
 
-  function registerUser(newUser: iRegisterFormFields) {
+  async function registerUser(newUser: iRegisterFormFields) {
     try {
-      api.post("users", newUser);
+      await api.post("users", newUser);
 
       toast.success("Usuário registrado com sucesso");
 
@@ -27,9 +27,11 @@ export function UserProvider() {
     }
   }
 
-  function login(user: iLoginFormFields) {
+  async function login(user: iLoginFormFields) {
     try {
-      api.post("login", user);
+      const loggedUser = await api.post("login", user);
+      
+      localStorage.setItem("@token", loggedUser.data.accessToken);
 
       navigate("/dashboard");
     } catch (err) {

@@ -7,6 +7,8 @@ import { LoginLinkStyled, RegisterStyled } from "./styles";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerSchema } from "./registerSchema";
+import { useContext } from "react";
+import { UserContext } from "../../providers/UserContext";
 
 export interface iRegisterFormFields {
   name: "string";
@@ -16,6 +18,8 @@ export interface iRegisterFormFields {
 }
 
 export function Register() {
+  const {registerUser} = useContext(UserContext);
+
   const {register, handleSubmit, formState:{errors}} = useForm<iRegisterFormFields>({
     mode: "onBlur",
     resolver: yupResolver(registerSchema)
@@ -29,7 +33,7 @@ export function Register() {
           <TitleStyled tag="h3">Cadastro</TitleStyled>
           <LoginLinkStyled to="/login">Retornar para o login</LoginLinkStyled>
         </div>
-        <form noValidate>
+        <form noValidate onSubmit={handleSubmit(registerUser)}>
           <InputWrapper label="Nome" type="text" register={register("name")} error={errors["name"]} />
           <InputWrapper label="Email" type="email" register={register("email")} error={errors["email"]} />
           <InputWrapper label="Senha" type="password" register={register("password")} error={errors["password"]} />
