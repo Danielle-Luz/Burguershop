@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
+import { Header } from "./Header";
 
 export function Dashboard() {
   const navigate = useNavigate();
@@ -12,5 +13,9 @@ export function Dashboard() {
     }
   }, []);
 
-  return <></>;
+  return (
+    <>
+      <Header />
+    </>
+  );
 }
