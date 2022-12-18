@@ -11,6 +11,7 @@ export const RegisterStyled = styled.div`
   display: flex;
   gap: 146px;
   justify-content: center;
+  min-height: 100vh;
   padding: 20px;
   width: 100%;
 

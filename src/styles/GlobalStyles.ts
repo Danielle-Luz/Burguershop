@@ -31,10 +31,6 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   #root {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    min-height: 100vh;
     position: relative;
     width: 100%;
   }
