@@ -14,7 +14,11 @@ export function CartProvider() {
 
   async function getProductsList() {
     try {
-      const foundProducts = await api.get("products");
+      const foundProducts = await api.get("products", {
+        headers: {
+          authorization: "Bearer " + localStorage.getItem("@token")
+        }
+      });
 
       console.log(foundProducts)
 
@@ -26,7 +30,7 @@ export function CartProvider() {
   useEffect(() => {
     getProductsList();
   }, []);
-  
+
   return (
     <CartContext.Provider value={{productsList}}>
       <Outlet />
