@@ -6,6 +6,7 @@ import { api } from "../services/api";
 interface iCartProviderValues {
   productsList: iProduct[];
   addProductOnCart(addedProduct: iProduct): void;
+  cart: iCartProduct[];
 }
 
 interface iCartProduct extends iProduct {
@@ -52,7 +53,7 @@ export function CartProvider() {
   }, []);
 
   return (
-    <CartContext.Provider value={{productsList, addProductOnCart}}>
+    <CartContext.Provider value={{productsList, addProductOnCart, cart}}>
       <Outlet />
     </CartContext.Provider>
   );
