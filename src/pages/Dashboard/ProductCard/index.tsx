@@ -1,3 +1,5 @@
+import { ButtonStyled } from "../../../components/Button/styles";
+import { TextStyled, TitleStyled } from "../../../components/Texts/styles";
 import { ProductCardStyled } from "./styles";
 
 export interface iProduct {
@@ -15,7 +17,15 @@ interface iProductCardProps {
 export function ProductCard({product:{id, name, category, price, img}}: iProductCardProps) {
   return (
     <ProductCardStyled>
-
+      <div>
+        <img src={img} alt={name} />
+      </div>
+      <article>
+        <TitleStyled tag="h2">{name}</TitleStyled>
+        <TextStyled tag="span" gray={1} weight={400}>{category}</TextStyled>
+        <TextStyled tag="p" weight={600}>{price}</TextStyled>
+        <ButtonStyled type="button" buttonStyle="add">Adicionar</ButtonStyled>
+      </article>
     </ProductCardStyled>
   );
 }
