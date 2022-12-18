@@ -13,6 +13,7 @@ export function SearchInput({toggleSearchBar, setToggleSearchBar}: iSearchInputP
 
   useEffect(() => {
     inputRef.current.focus();
+    inputRef.current.value = "";
   }, [inputRef.current, toggleSearchBar]);
 
   return (
