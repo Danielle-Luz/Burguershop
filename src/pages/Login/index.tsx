@@ -7,7 +7,7 @@ import { LoginStyled } from "./styles";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginSchema } from "./loginSchema";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { UserContext } from "../../providers/UserContext";
 
 export interface iLoginFormFields {
@@ -22,6 +22,8 @@ export function Login() {
     mode: "onBlur",
     resolver: yupResolver(loginSchema)
   })
+
+  useEffect(() => localStorage.clear(), []);
 
   return (
     <LoginStyled>

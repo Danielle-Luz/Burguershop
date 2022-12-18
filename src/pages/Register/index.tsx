@@ -7,7 +7,7 @@ import { LoginLinkStyled, RegisterStyled } from "./styles";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerSchema } from "./registerSchema";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { UserContext } from "../../providers/UserContext";
 
 export interface iRegisterFormFields {
@@ -24,6 +24,8 @@ export function Register() {
     mode: "onBlur",
     resolver: yupResolver(registerSchema)
   });
+
+  useEffect(() => localStorage.clear(), []);
 
   return (
   <RegisterStyled>
