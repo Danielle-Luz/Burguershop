@@ -21,7 +21,7 @@ export function UserProvider() {
 
       toast.success("Usuário registrado com sucesso");
 
-      navigate("/login");
+      navigate("/user/login");
     } catch (err) {
       console.log(err);
     }
