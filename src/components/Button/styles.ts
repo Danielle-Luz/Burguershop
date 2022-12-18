@@ -28,10 +28,6 @@ const buttonStyleType = {
   add: css`
     background-color: ${({theme}: iButtonStyledProps) => theme.colors.gray[4]};
     color: white;
-    
-    &:hover {
-      background-color: ${({theme}: iButtonStyledProps) => theme.colors.brand.secondary[0]};
-    }
   `
 }
 
