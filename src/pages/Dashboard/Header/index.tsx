@@ -8,7 +8,12 @@ import { SearchInput } from "../SearchInput";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 
-export function Header() {
+interface iHeaderProps {
+  toggleModal: boolean;
+  setToggleModal: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export function Header({toggleModal, setToggleModal}: iHeaderProps) {
   const navigate = useNavigate();
   const [toggleSearchBar, setToggleSearchBar] = useState(false);
 
@@ -21,7 +26,7 @@ export function Header() {
           <button className="search-button" onClick={() => setToggleSearchBar(true)}>
             <img src={searchIcon} alt="ícone de busca" />
           </button>
-          <button>
+          <button onClick={() => setToggleModal(true)}>
             <img src={cartIcon} alt="ícone de carrinho" />
           </button>
           <button onClick={() => navigate("/user/login")}>
