@@ -4,7 +4,6 @@ import { iLoginFormFields } from "../pages/Login";
 import { iRegisterFormFields } from "../pages/Register";
 import { api } from "../services/api";
 import { toast } from "react-toastify";
-import { string } from "yargs";
 
 interface iUserProviederValues {
   registerUser(newUser: iRegisterFormFields): void;
@@ -30,7 +29,13 @@ export function UserProvider() {
 
       navigate("/user/login");
     } catch (err) {
-      console.log(err);
+      const error = err as iRequestError;
+
+      if (error.response.data === "Email already exists") {
+        toast.error("Email já cadastrado");
+      } else {
+        toast.error("Não foi possível fazer o cadastro");
+      }
     }
   }
 
@@ -44,7 +49,7 @@ export function UserProvider() {
     } catch (err) {
       const error = err as iRequestError;
 
-      if (error.response.data === "Cannot find user") {
+      if (error.response.data === "Cannot find user" || error.response.data === "Incorrect password") {
         toast.error("Email ou senha incorretos");
       } else {
         toast.error("Não foi possível fazer o login");
