@@ -1,9 +1,12 @@
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router";
+import { CartContext } from "../../providers/CartContext";
 import { Header } from "./Header";
+import { ProductCard } from "./ProductCard";
 import { ProductsListWrapperStyled } from "./styles";
 
 export function Dashboard() {
+  const { productsList } = useContext(CartContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -19,7 +22,9 @@ export function Dashboard() {
       <Header />
       <ProductsListWrapperStyled>
         <ul>
-          
+          {productsList.map((product) => (
+            <ProductCard product={product} />
+          ))}
         </ul>
       </ProductsListWrapperStyled>
     </>

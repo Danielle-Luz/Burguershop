@@ -8,10 +8,14 @@ export interface iProduct {
   img: string;
 }
 
-export function ProductCard({id, name, category, price, img}: iProduct) {
+interface iProductCardProps {
+  product: iProduct;
+}
+
+export function ProductCard({product:{id, name, category, price, img}}: iProductCardProps) {
   return (
     <ProductCardStyled>
-      
+
     </ProductCardStyled>
   );
 }
