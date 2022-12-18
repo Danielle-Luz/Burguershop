@@ -3,8 +3,13 @@ import { TitleStyled } from "../../Texts/styles";
 import { CartProductStyled } from "./styles";
 import trash from "../../../assets/imgs/trash.svg";
 
-export function CartProduct(product: iCartProduct) {
+interface iCartProductProps {
+  product: iCartProduct;
+}
+
+export function CartProduct({product}: iCartProductProps ) {
   const {id, img, name, quantity} = product;
+  
   return (
     <CartProductStyled>
       <div>

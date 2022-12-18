@@ -22,7 +22,7 @@ export function Dashboard() {
   return (
     <>
       {
-        toggleModal && <Modal />
+        toggleModal && <Modal setToggleModal={setToggleModal} />
       }
       <Header toggleModal={toggleModal} setToggleModal={setToggleModal} />
       <ProductsListWrapperStyled>

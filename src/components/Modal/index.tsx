@@ -3,8 +3,13 @@ import { ModalStyled } from "./styles";
 import closeIcon from "../../assets/imgs/close.svg";
 import { useContext } from "react";
 import { CartContext } from "../../providers/CartContext";
+import { CartProduct } from "./CartProduct";
 
-export function Modal() {
+interface iModalProps {
+  setToggleModal: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export function Modal({setToggleModal}: iModalProps) {
   const { cart } = useContext(CartContext);
 
   return (
@@ -12,7 +17,7 @@ export function Modal() {
       <article>
         <header>
           <TitleStyled tag="h3">Carrinho de compras</TitleStyled>
-          <button>
+          <button onClick={() => setToggleModal(false)}>
             <img src={closeIcon} alt="ícone de x" />
           </button>
         </header>
@@ -26,7 +31,9 @@ export function Modal() {
             </div>
           ) : (
             <ul>
-              <article></article>
+              {
+                cart.map(product => <CartProduct product={product} />)
+              }
             </ul>
           )}
         </main>
