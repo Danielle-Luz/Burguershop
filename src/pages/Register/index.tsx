@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerSchema } from "./registerSchema";
 
-interface iRegisterFormFields {
+export interface iRegisterFormFields {
   name: "string";
   email: "string";
   password: "string";

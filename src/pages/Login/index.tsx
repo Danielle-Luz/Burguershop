@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginSchema } from "./loginSchema";
 
-interface iLoginFormFields {
+export interface iLoginFormFields {
   email: "string";
   password: "string";
 }
