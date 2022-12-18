@@ -4,10 +4,17 @@ import { iLoginFormFields } from "../pages/Login";
 import { iRegisterFormFields } from "../pages/Register";
 import { api } from "../services/api";
 import { toast } from "react-toastify";
+import { string } from "yargs";
 
 interface iUserProviederValues {
   registerUser(newUser: iRegisterFormFields): void;
   login(user: iLoginFormFields): void;
+}
+
+interface iRequestError {
+  response: {
+    data: string;
+  }
 }
 
 export const UserContext = createContext({} as iUserProviederValues);
@@ -35,7 +42,13 @@ export function UserProvider() {
 
       navigate("/dashboard");
     } catch (err) {
-      console.log(err);
+      const error = err as iRequestError;
+
+      if (error.response.data === "Cannot find user") {
+        toast.error("Email ou senha incorretos");
+      } else {
+        toast.error("Não foi possível fazer o login");
+      }
     }
   }
 
