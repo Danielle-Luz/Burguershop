@@ -9,7 +9,7 @@ interface iCartProviderValues {
   cart: iCartProduct[];
 }
 
-interface iCartProduct extends iProduct {
+export interface iCartProduct extends iProduct {
   quantity: number;
 }
 
