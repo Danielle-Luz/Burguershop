@@ -17,6 +17,7 @@ export function Dashboard() {
     }
   }, []);
 
+  console.log(productsList)
   return (
     <>
       <Header />

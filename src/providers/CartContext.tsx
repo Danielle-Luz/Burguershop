@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { Outlet } from "react-router";
 import { iProduct } from "../pages/Dashboard/ProductCard";
 import { api } from "../services/api";
@@ -16,11 +16,17 @@ export function CartProvider() {
     try {
       const foundProducts = await api.get("products");
 
+      console.log(foundProducts)
+
       setProductsList(foundProducts.data);
     } catch(err) {
-
     }
   }
+
+  useEffect(() => {
+    getProductsList();
+  }, []);
+  
   return (
     <CartContext.Provider value={{productsList}}>
       <Outlet />
