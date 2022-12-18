@@ -23,7 +23,7 @@ export function ProductCard({product:{id, name, category, price, img}}: iProduct
       <article>
         <TitleStyled tag="h2">{name}</TitleStyled>
         <TextStyled tag="span" gray={1} weight={400}>{category}</TextStyled>
-        <TextStyled tag="p" weight={600}>{price}</TextStyled>
+        <TextStyled tag="p" weight={600}>{price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL'})}</TextStyled>
         <ButtonStyled type="button" buttonStyle="add">Adicionar</ButtonStyled>
       </article>
     </ProductCardStyled>

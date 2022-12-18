@@ -17,7 +17,9 @@ export const ProductsListWrapperStyled = styled.main`
   
   ul {
     display: flex;
+    gap: 30px;
     overflow-x: auto;
+    list-style: none;
     width: 100%;
   }
 
@@ -25,7 +27,7 @@ export const ProductsListWrapperStyled = styled.main`
     ul {
       flex-wrap: wrap;
     }
-    
+
     max-width: 1368px;
     padding: 26px 16px;
   }

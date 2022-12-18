@@ -7,6 +7,8 @@ interface iProductCardProps {
 
 export const ProductCardStyled = styled.li`
   border: 2px solid transparent;
+  border-radius: ${({theme}: iProductCardProps) => theme.radius[0]};
+  flex-shrink: 0;
   max-width: 300px;
   width: 100%;
 
@@ -39,6 +41,7 @@ export const ProductCardStyled = styled.li`
     padding: 20px;
 
     button {
+      height: fit-content;
       width: fit-content;
     }
   }

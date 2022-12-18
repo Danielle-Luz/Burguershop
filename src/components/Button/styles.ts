@@ -28,6 +28,7 @@ const buttonStyleType = {
   add: css`
     background-color: ${({theme}: iButtonStyledProps) => theme.colors.gray[4]};
     color: white;
+    padding: 11.5px 20px;
   `
 }
 
