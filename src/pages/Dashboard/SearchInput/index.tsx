@@ -12,13 +12,15 @@ export function SearchInput({toggleSearchBar, setToggleSearchBar}: iSearchInputP
   const inputRef = useRef() as React.MutableRefObject<HTMLInputElement>;
 
   useEffect(() => {
-    inputRef.current.focus();
-    inputRef.current.value = "";
+    if(toggleSearchBar) {
+      inputRef.current.focus();
+      inputRef.current.value = "";
+    }
   }, [toggleSearchBar]);
 
   return (
     <SearchInputStyled>
-      <input autoFocus={true} ref={inputRef} onBlur={() => setToggleSearchBar(false)} type="text" placeholder="Digitar pesquisa" />
+      <input ref={inputRef} onBlur={() => setToggleSearchBar(false)} type="text" placeholder="Digitar pesquisa" />
       <button>
         <img src={searchIcon} alt="ícone de busca" />
       </button>
