@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
 import { Header } from "./Header";
+import { ProductsListWrapperStyled } from "./styles";
 
 export function Dashboard() {
   const navigate = useNavigate();
@@ -16,6 +17,9 @@ export function Dashboard() {
   return (
     <>
       <Header />
+      <ProductsListWrapperStyled>
+        
+      </ProductsListWrapperStyled>
     </>
   );
 }
