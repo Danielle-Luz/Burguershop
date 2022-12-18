@@ -31,7 +31,7 @@ export function Register() {
       <FormUserStyled>
         <div>
           <TitleStyled tag="h3">Cadastro</TitleStyled>
-          <LoginLinkStyled to="/login">Retornar para o login</LoginLinkStyled>
+          <LoginLinkStyled to="/user/login">Retornar para o login</LoginLinkStyled>
         </div>
         <form noValidate onSubmit={handleSubmit(registerUser)}>
           <InputWrapper label="Nome" type="text" register={register("name")} error={errors["name"]} />
