@@ -7,6 +7,8 @@ import { LoginStyled } from "./styles";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginSchema } from "./loginSchema";
+import { useContext } from "react";
+import { UserContext } from "../../providers/UserContext";
 
 export interface iLoginFormFields {
   email: "string";
@@ -14,6 +16,8 @@ export interface iLoginFormFields {
 }
 
 export function Login() {
+  const {login} = useContext(UserContext);
+
   const {register, handleSubmit, formState:{errors}} = useForm<iLoginFormFields>({
     mode: "onBlur",
     resolver: yupResolver(loginSchema)
@@ -24,7 +28,7 @@ export function Login() {
       <SiteInfo />
       <FormUserStyled>
         <TitleStyled tag="h3">Login</TitleStyled>
-        <form noValidate>
+        <form noValidate onSubmit={handleSubmit(login)}>
           <InputWrapper label="Email" type="email" register={register("email")} error={errors["email"]} />
           <InputWrapper label="Senha" type="password" register={register("password")} error={errors["password"]} />
           <ButtonStyled type="button" buttonStyle="brand">Logar</ButtonStyled>
