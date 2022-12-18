@@ -3,6 +3,8 @@ import { iTheme } from "../../../styles/theme";
 
 interface iHeaderStyledProps {
   theme: iTheme;
+  toggleSearchBar: boolean;
+  setToggleSearchBar: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const HeaderStyled = styled.header`
@@ -15,14 +17,36 @@ export const HeaderStyled = styled.header`
   & > div {
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
+
+    & > img {
+      width: 150px;
+      display: ${({toggleSearchBar}) => toggleSearchBar ? "none" : "block"};
+    }
   }
 
-  @media (max-width: 650px) {
-    & > div {
-      align-items: center;
-      flex-direction: column;
-      gap: 20px;
+  & > div > div {
+    align-items: center;
+    display: flex;
+    gap: 23px;
+    width: ${({toggleSearchBar}) => toggleSearchBar ? "100%" : "unset"};
+
+    & > button {
+      background-color: transparent;
+      display: ${({toggleSearchBar}) => toggleSearchBar ? "none" : "block"};
+    }
+  }
+
+  & > div > div > div {
+    display: ${({toggleSearchBar}) => toggleSearchBar ? "block" : "none"};
+  }
+
+  @media (min-width: 700px) {
+    .search-button {
+      display: none;
+    }
+
+    & > div > div > div {
+      display: block;
     }
   }
 `;

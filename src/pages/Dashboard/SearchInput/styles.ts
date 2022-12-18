@@ -1,15 +1,18 @@
 import styled from "styled-components";
-import { iTheme } from "../../../styles/theme";
+import { iTheme, theme } from "../../../styles/theme";
 
 interface iSearchInputStyledProps {
   theme: iTheme;
 }
 
 export const SearchInputStyled = styled.div`
-  max-width: 365px;
   height: 60px;
   position: relative;
   width: 100%;
+  
+  @media (min-width: 700px) {
+    max-width: 365px;
+  }
 
   input {
     height: 100%;
@@ -17,10 +20,15 @@ export const SearchInputStyled = styled.div`
     border-radius: ${({theme}: iSearchInputStyledProps) => theme.radius[1]};
     padding-left: 10px;
     padding-right: 80px;
+    outline: 2px solid ${({theme: iSearchInputStyledProps}) => theme.colors.gray[2]};
   }
 
   input::placeholder {
     color: ${({ theme }: iSearchInputStyledProps) => theme.colors.gray[2] };
+  }
+
+  input:focus {
+    outline-color: black;
   }
 
   button {
