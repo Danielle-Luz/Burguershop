@@ -17,14 +17,13 @@ export function Dashboard() {
     }
   }, []);
 
-  console.log(productsList)
   return (
     <>
       <Header />
       <ProductsListWrapperStyled>
         <ul>
-          {productsList.map((product) => (
-            <ProductCard product={product} />
+          {productsList.map((product, index) => (
+            <ProductCard key={index} product={product} />
           ))}
         </ul>
       </ProductsListWrapperStyled>

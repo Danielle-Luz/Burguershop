@@ -5,6 +5,7 @@ import { iTheme } from "../../styles/theme"
 interface iButtonStyledProps {
   theme: iTheme;
   buttonStyle: "brand" | "gray" | "add";
+  onClick?: () => void;
 }
 
 const buttonStyleType = {

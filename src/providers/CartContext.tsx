@@ -34,7 +34,7 @@ export function CartProvider() {
   function addProductOnCart(addedProduct: iProduct) {
     const foundProductIndex = cart.findIndex(product => product.id === addedProduct.id);
 
-    if(foundProductIndex != -1) {
+    if(foundProductIndex !== -1) {
       const newList = [...cart];
 
       newList[foundProductIndex].quantity += 1;
@@ -43,6 +43,8 @@ export function CartProvider() {
     } else {
       setCart([...cart, {...addedProduct, quantity: 1}]);
     }
+
+    console.log(cart);
   }
 
   useEffect(() => {
