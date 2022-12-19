@@ -62,7 +62,7 @@ export const ModalStyled = styled.div`
   ul {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 20px;
     list-style: none;
     padding: 20px;
     width: 100%;

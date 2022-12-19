@@ -1,5 +1,5 @@
 import { iCartProduct } from "../../../providers/CartContext";
-import { TitleStyled } from "../../Texts/styles";
+import { TextStyled, TitleStyled } from "../../Texts/styles";
 import { CartProductStyled } from "./styles";
 import trash from "../../../assets/imgs/trash.svg";
 
@@ -20,7 +20,7 @@ export function CartProduct({ product }: iCartProductProps) {
           <TitleStyled tag="h3">{name}</TitleStyled>
           <article>
             <button>-</button>
-            <span>{quantity}</span>
+            <TextStyled tag="span" gray={0} weight={400}>{quantity}</TextStyled>
             <button>+</button>
           </article>
         </div>
