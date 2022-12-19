@@ -15,7 +15,7 @@ export const CartProductStyled = styled.li`
   .img-wrapper {
     align-items: center;
     background-color: ${({ theme }: iCartProductStyledProps) =>
-      theme.colors.gray[3]};
+      theme.colors.gray[2]};
     border-radius: ${({ theme }: iCartProductStyledProps) => theme.radius[1]};
     display: flex;
     justify-content: center;

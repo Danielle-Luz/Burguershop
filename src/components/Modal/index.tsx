@@ -4,6 +4,7 @@ import closeIcon from "../../assets/imgs/close.svg";
 import { useContext } from "react";
 import { CartContext } from "../../providers/CartContext";
 import { CartProduct } from "./CartProduct";
+import { CartTotal } from "./CartTotal";
 
 interface iModalProps {
   setToggleModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -36,6 +37,7 @@ export function Modal({setToggleModal}: iModalProps) {
               }
             </ul>
           )}
+          <CartTotal />
         </main>
       </article>
     </ModalStyled>

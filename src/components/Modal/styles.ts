@@ -16,7 +16,7 @@ export const ModalStyled = styled.div`
   padding: 10px;
   z-index: 1;
   
-  article {
+  & > article {
     border-radius: ${({theme}: iModalStyledProps) => theme.radius[1]};
     max-width: 500px;
     overflow: hidden;
@@ -43,10 +43,13 @@ export const ModalStyled = styled.div`
     align-items: center;
     background-color: white;
     display: flex;
+    flex-direction: column;
+    gap: 18px;
     justify-content: center;
     min-height: 158px;
     max-height: 500px;
     overflow-y: auto;
+    padding: 20px;
     width: 100%;
 
     div {
@@ -64,7 +67,6 @@ export const ModalStyled = styled.div`
     flex-direction: column;
     gap: 20px;
     list-style: none;
-    padding: 20px;
     width: 100%;
   }
 `

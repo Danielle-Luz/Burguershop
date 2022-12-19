@@ -19,4 +19,9 @@ export const CartTotalStyled = styled.article`
     justify-content: space-between;
     width: 100%;
   }
+
+  button {
+    background-color: ${({theme}: CartTotalStyledProps) => theme.colors.gray[2]};
+    width: 100%;
+  }
 `
