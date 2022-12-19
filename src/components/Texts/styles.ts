@@ -8,11 +8,10 @@ interface iTitleProps {
 
 interface iTextProps {
   theme: iTheme;
-  tag: "p" | "label";
+  tag: "p" | "label" | "span";
   weight: 400 | 600;
-  gray: 0 | 1 | 2 | 3;
+  gray?: 0 | 1 | 2 | 3;
 }
-
 
 const titleFontSize = {
   h1: css`${({theme}: iTitleProps) => theme.fontSizes[0]}`,
@@ -26,7 +25,7 @@ export const TitleStyled = styled(Title)<iTitleProps>`
 `
 
 export const TextStyled = styled(Text)<iTextProps>`
-  color: ${({theme, gray}: iTextProps) => theme.colors.gray[gray]};
+  color: ${({theme, gray}: iTextProps) => gray || gray === 0 ? theme.colors.gray[gray] : theme.colors.brand.secondary[0]};
   font-size: ${({theme, tag}) => theme.fontSizes[tag === "p" ? 4 : 5]};
   font-weight: ${({weight}) => weight};
   line-height: 150%;

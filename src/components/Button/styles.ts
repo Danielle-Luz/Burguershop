@@ -5,6 +5,7 @@ import { iTheme } from "../../styles/theme"
 interface iButtonStyledProps {
   theme: iTheme;
   buttonStyle: "brand" | "gray" | "add";
+  onClick?: () => void;
 }
 
 const buttonStyleType = {
@@ -28,10 +29,7 @@ const buttonStyleType = {
   add: css`
     background-color: ${({theme}: iButtonStyledProps) => theme.colors.gray[4]};
     color: white;
-    
-    &:hover {
-      background-color: ${({theme}: iButtonStyledProps) => theme.colors.brand.secondary[0]};
-    }
+    padding: 11.5px 20px;
   `
 }
 

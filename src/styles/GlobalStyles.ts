@@ -1,4 +1,9 @@
 import { createGlobalStyle } from "styled-components";
+import { iTheme } from "./theme";
+
+interface iGlobalStylesProps {
+  theme: iTheme;
+}
 
 export const GlobalStyles = createGlobalStyle`
   * {
@@ -13,6 +18,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   button {
+    background-color: transparent;
     border: none;
     cursor: pointer;
     text-align: center;
@@ -21,14 +27,12 @@ export const GlobalStyles = createGlobalStyle`
 
   input {
     border: none;
+    font-size: ${({theme}: iGlobalStylesProps) => theme.fontSizes[3]};
     outline: none;
   }
 
   #root {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    min-height: 100vh;
+    position: relative;
     width: 100%;
   }
 `
