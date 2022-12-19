@@ -10,6 +10,7 @@ interface iCartProviderValues {
   addQuantity(productId: number, operation: "add" | "remove"): void;
   removeProductFromCart(removedProductId: number): void;
   removeAllProducts(): void;
+  sumCartProductsPrice(): number;
 }
 
 export interface iCartProduct extends iProduct {
@@ -71,9 +72,15 @@ export function CartProvider() {
 
     setCart([...newList]);
   }
-  
+
   function removeAllProducts() {
     setCart([]);
+  }
+
+  function sumCartProductsPrice() {
+    const sum = cart.reduce((total, {price, quantity}) => (total += price * quantity), 0);
+
+    return sum;
   }
 
   useEffect(() => {
@@ -88,7 +95,8 @@ export function CartProvider() {
         cart,
         addQuantity,
         removeProductFromCart,
-        removeAllProducts
+        removeAllProducts,
+        sumCartProductsPrice
       }}
     >
       <Outlet />
