@@ -47,8 +47,6 @@ export const ModalStyled = styled.div`
     gap: 18px;
     justify-content: center;
     min-height: 158px;
-    max-height: 500px;
-    overflow-y: auto;
     padding: 20px;
     width: 100%;
 
@@ -67,6 +65,9 @@ export const ModalStyled = styled.div`
     flex-direction: column;
     gap: 20px;
     list-style: none;
+    max-height: 300px;
+    overflow-y: auto;
+    padding-inline: 20px;
     width: 100%;
   }
 `
