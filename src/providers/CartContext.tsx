@@ -8,6 +8,7 @@ interface iCartProviderValues {
   addProductOnCart(addedProduct: iProduct): void;
   cart: iCartProduct[];
   addQuantity(productId: number, operation: "add" | "remove"): void;
+  removeProductFromCart(removedProductId: number): void;
 }
 
 export interface iCartProduct extends iProduct {
@@ -24,39 +25,48 @@ export function CartProvider() {
     try {
       const foundProducts = await api.get("products", {
         headers: {
-          authorization: "Bearer " + localStorage.getItem("@token")
-        }
+          authorization: "Bearer " + localStorage.getItem("@token"),
+        },
       });
 
       setProductsList(foundProducts.data);
-    } catch(err) {
-    }
+    } catch (err) {}
   }
 
   function addProductOnCart(addedProduct: iProduct) {
-    const foundProductIndex = cart.findIndex(product => product.id === addedProduct.id);
+    const foundProductIndex = cart.findIndex(
+      (product) => product.id === addedProduct.id
+    );
 
-    if(foundProductIndex !== -1) {
+    if (foundProductIndex !== -1) {
       const newList = [...cart];
 
       newList[foundProductIndex].quantity += 1;
 
       setCart([...newList]);
     } else {
-      setCart([...cart, {...addedProduct, quantity: 1}]);
+      setCart([...cart, { ...addedProduct, quantity: 1 }]);
     }
   }
 
   function addQuantity(productId: number, operation: "add" | "remove") {
-    const foundProductIndex = cart.findIndex(product => product.id === productId);
+    const foundProductIndex = cart.findIndex(
+      (product) => product.id === productId
+    );
 
     const newList = [...cart];
 
-    if(operation === "add") {
+    if (operation === "add") {
       newList[foundProductIndex].quantity += 1;
-    } else {
+    } else if (newList[foundProductIndex].quantity > 1) {
       newList[foundProductIndex].quantity -= 1;
     }
+
+    setCart([...newList]);
+  }
+
+  function removeProductFromCart(removedProductId: number) {
+    const newList = cart.filter((product) => product.id != removedProductId);
 
     setCart([...newList]);
   }
@@ -66,7 +76,15 @@ export function CartProvider() {
   }, []);
 
   return (
-    <CartContext.Provider value={{productsList, addProductOnCart, cart, addQuantity}}>
+    <CartContext.Provider
+      value={{
+        productsList,
+        addProductOnCart,
+        cart,
+        addQuantity,
+        removeProductFromCart,
+      }}
+    >
       <Outlet />
     </CartContext.Provider>
   );
