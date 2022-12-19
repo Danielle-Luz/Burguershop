@@ -36,7 +36,7 @@ export const HeaderStyled = styled.header`
     }
   }
 
-  & > div > div > div {
+  & > div > div > form {
     display: ${({toggleSearchBar}) => toggleSearchBar ? "block" : "none"};
   }
 
@@ -45,7 +45,7 @@ export const HeaderStyled = styled.header`
       display: none;
     }
 
-    & > div > div > div {
+    & > div > div > form {
       display: block;
     }
   }

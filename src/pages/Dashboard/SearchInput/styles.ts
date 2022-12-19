@@ -5,7 +5,7 @@ interface iSearchInputStyledProps {
   theme: iTheme;
 }
 
-export const SearchInputStyled = styled.div`
+export const SearchInputStyled = styled.form`
   height: 60px;
   position: relative;
   width: 100%;

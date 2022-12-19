@@ -11,6 +11,7 @@ interface iCartProviderValues {
   removeProductFromCart(removedProductId: number): void;
   removeAllProducts(): void;
   sumCartProductsPrice(): number;
+  searchProducts(searchedTerm: string): void;
 }
 
 export interface iCartProduct extends iProduct {
@@ -21,6 +22,7 @@ export const CartContext = createContext({} as iCartProviderValues);
 
 export function CartProvider() {
   const [productsList, setProductsList] = useState([] as iProduct[]);
+  const [searchedProducts, setsearchedProducts] = useState([...productsList]);
   const [cart, setCart] = useState([] as iCartProduct[]);
 
   async function getProductsList() {
@@ -83,6 +85,12 @@ export function CartProvider() {
     return sum;
   }
 
+  function searchProducts(searchedTerm: string) {
+    const foundProducts = productsList.filter(({name, category}) => name.includes(searchedTerm) || category.includes(searchedTerm));
+
+    setsearchedProducts([...foundProducts]);
+  }
+
   useEffect(() => {
     getProductsList();
   }, []);
@@ -96,7 +104,8 @@ export function CartProvider() {
         addQuantity,
         removeProductFromCart,
         removeAllProducts,
-        sumCartProductsPrice
+        sumCartProductsPrice,
+        searchProducts
       }}
     >
       <Outlet />
