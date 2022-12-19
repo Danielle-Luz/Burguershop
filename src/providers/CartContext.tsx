@@ -13,6 +13,7 @@ interface iCartProviderValues {
   removeAllProducts(): void;
   sumCartProductsPrice(): number;
   searchProducts(search: iSearchFormFields): void;
+  showAllProducts(): void;
 }
 
 export interface iCartProduct extends iProduct {
@@ -95,6 +96,10 @@ export function CartProvider() {
     setsearchedProducts([...foundProducts]);
   }
 
+  function showAllProducts() {
+    setsearchedProducts([...productsList]);
+  }
+
   useEffect(() => {
     getProductsList();
   }, []);
@@ -109,7 +114,8 @@ export function CartProvider() {
         removeProductFromCart,
         removeAllProducts,
         sumCartProductsPrice,
-        searchProducts
+        searchProducts,
+        showAllProducts
       }}
     >
       <Outlet />

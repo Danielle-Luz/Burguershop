@@ -18,7 +18,7 @@ export const HeaderStyled = styled.header`
     display: flex;
     justify-content: space-between;
 
-    & > img {
+    & > button > img {
       width: 150px;
       display: ${({toggleSearchBar}) => toggleSearchBar ? "none" : "block"};
     }

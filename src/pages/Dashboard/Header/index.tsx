@@ -14,20 +14,34 @@ interface iHeaderProps {
   setToggleModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export function Header({toggleModal, setToggleModal}: iHeaderProps) {
+export function Header({ toggleModal, setToggleModal }: iHeaderProps) {
   const navigate = useNavigate();
   const [toggleSearchBar, setToggleSearchBar] = useState(false);
-  const {cart} = useContext(CartContext);
+  const { cart, showAllProducts } = useContext(CartContext);
 
-  const totalProductsOnCart = cart.reduce((total, product) => total += product.quantity, 0)
+  const totalProductsOnCart = cart.reduce(
+    (total, product) => (total += product.quantity),
+    0
+  );
 
-  return ( 
-    <HeaderStyled toggleSearchBar={toggleSearchBar} setToggleSearchBar={setToggleSearchBar}>
+  return (
+    <HeaderStyled
+      toggleSearchBar={toggleSearchBar}
+      setToggleSearchBar={setToggleSearchBar}
+    >
       <ContainerStyled>
-        <img src={logo} alt="logo" />
+        <button onClick={showAllProducts}>
+          <img src={logo} alt="logo" />
+        </button>
         <div>
-          <SearchInput toggleSearchBar={toggleSearchBar} setToggleSearchBar={setToggleSearchBar} />
-          <button className="search-button" onClick={() => setToggleSearchBar(true)}>
+          <SearchInput
+            toggleSearchBar={toggleSearchBar}
+            setToggleSearchBar={setToggleSearchBar}
+          />
+          <button
+            className="search-button"
+            onClick={() => setToggleSearchBar(true)}
+          >
             <img src={searchIcon} alt="ícone de busca" />
           </button>
           <button onClick={() => setToggleModal(true)}>
