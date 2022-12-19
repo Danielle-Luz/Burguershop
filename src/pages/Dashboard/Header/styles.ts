@@ -33,6 +33,18 @@ export const HeaderStyled = styled.header`
     & > button {
       background-color: transparent;
       display: ${({toggleSearchBar}) => toggleSearchBar ? "none" : "block"};
+      position: relative;
+
+      span {
+        background-color: ${({theme}: iHeaderStyledProps) => theme.colors.brand.secondary[0]};
+        border-radius: ${({theme}: iHeaderStyledProps) => theme.radius[0]};
+        color: white;
+        font-weight: 600;
+        padding: 5px;
+        position: absolute;
+        top: -18px;
+        right: -10px;
+      }
     }
   }
 

@@ -5,8 +5,9 @@ import searchIcon from "../../../assets/imgs/search-gray.svg";
 import cartIcon from "../../../assets/imgs/cart.svg";
 import quitIcon from "../../../assets/imgs/quit.svg";
 import { SearchInput } from "../SearchInput";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router";
+import { CartContext } from "../../../providers/CartContext";
 
 interface iHeaderProps {
   toggleModal: boolean;
@@ -16,6 +17,9 @@ interface iHeaderProps {
 export function Header({toggleModal, setToggleModal}: iHeaderProps) {
   const navigate = useNavigate();
   const [toggleSearchBar, setToggleSearchBar] = useState(false);
+  const {cart} = useContext(CartContext);
+
+  const totalProductsOnCart = cart.reduce((total, product) => total += product.quantity, 0)
 
   return ( 
     <HeaderStyled toggleSearchBar={toggleSearchBar} setToggleSearchBar={setToggleSearchBar}>
@@ -27,6 +31,7 @@ export function Header({toggleModal, setToggleModal}: iHeaderProps) {
             <img src={searchIcon} alt="ícone de busca" />
           </button>
           <button onClick={() => setToggleModal(true)}>
+            <span>{totalProductsOnCart}</span>
             <img src={cartIcon} alt="ícone de carrinho" />
           </button>
           <button onClick={() => navigate("/user/login")}>
