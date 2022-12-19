@@ -7,6 +7,7 @@ interface iProductsListWrapperStyled {
 
 export const ContainerStyled = styled.div`
   max-width: 1368px;
+  margin: 0 auto;
   padding: 26px 16px;
   width: 100%;
 
@@ -17,6 +18,7 @@ export const ContainerStyled = styled.div`
 
 export const ProductsListWrapperStyled = styled.main`
   max-width: none;
+  margin: 0 auto;
   padding: 26px 0 26px 16px;
   width: 100%;
 
@@ -51,4 +53,12 @@ export const ProductsListWrapperStyled = styled.main`
     max-width: 1368px;
     padding: 26px 16px;
   }
+`
+
+export const CenterContainer = styled.div`
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  width: 100%;
 `

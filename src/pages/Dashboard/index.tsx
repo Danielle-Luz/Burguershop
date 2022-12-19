@@ -5,11 +5,12 @@ import { TitleStyled } from "../../components/Texts/styles";
 import { CartContext } from "../../providers/CartContext";
 import { Header } from "./Header";
 import { ProductCard } from "./ProductCard";
-import { ProductsListWrapperStyled } from "./styles";
+import { CenterContainer, ProductsListWrapperStyled } from "./styles";
+import loadingIcon from "../../assets/imgs/loading.gif";
 
 export function Dashboard() {
   const [toggleModal, setToggleModal] = useState(false);
-  const { searchedProducts } = useContext(CartContext);
+  const { searchedProducts, loading } = useContext(CartContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -22,19 +23,27 @@ export function Dashboard() {
 
   return (
     <>
-      {toggleModal && <Modal setToggleModal={setToggleModal} />}
-      <Header toggleModal={toggleModal} setToggleModal={setToggleModal} />
-      <ProductsListWrapperStyled>
-        <ul>
-          {searchedProducts.length !== 0 ? (
-            searchedProducts.map((product, index) => (
-              <ProductCard key={index} product={product} />
-            ))
-          ) : (
-            <TitleStyled tag="h1">Nenhum produto encontrado</TitleStyled>
-          )}
-        </ul>
-      </ProductsListWrapperStyled>
+      {loading ? (
+        <CenterContainer>
+          <img src={loadingIcon} alt="" />
+        </CenterContainer>
+      ) : (
+        <>
+          {toggleModal && <Modal setToggleModal={setToggleModal} />}
+          <Header toggleModal={toggleModal} setToggleModal={setToggleModal} />
+          <ProductsListWrapperStyled>
+            <ul>
+              {searchedProducts.length !== 0 ? (
+                searchedProducts.map((product, index) => (
+                  <ProductCard key={index} product={product} />
+                ))
+              ) : (
+                <TitleStyled tag="h1">Nenhum produto encontrado</TitleStyled>
+              )}
+            </ul>
+          </ProductsListWrapperStyled>
+        </>
+      )}
     </>
   );
 }
