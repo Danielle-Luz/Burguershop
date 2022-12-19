@@ -9,6 +9,7 @@ interface iCartProviderValues {
   cart: iCartProduct[];
   addQuantity(productId: number, operation: "add" | "remove"): void;
   removeProductFromCart(removedProductId: number): void;
+  removeAllProducts(): void;
 }
 
 export interface iCartProduct extends iProduct {
@@ -70,6 +71,10 @@ export function CartProvider() {
 
     setCart([...newList]);
   }
+  
+  function removeAllProducts() {
+    setCart([]);
+  }
 
   useEffect(() => {
     getProductsList();
@@ -83,6 +88,7 @@ export function CartProvider() {
         cart,
         addQuantity,
         removeProductFromCart,
+        removeAllProducts
       }}
     >
       <Outlet />
