@@ -9,7 +9,7 @@ interface iCartProductProps {
 }
 
 export function CartProduct({ product }: iCartProductProps) {
-  const { addQuantity } = useContext(CartContext);
+  const { addQuantity, removeProductFromCart } = useContext(CartContext);
 
   const { id, img, name, quantity } = product;
 
@@ -30,7 +30,7 @@ export function CartProduct({ product }: iCartProductProps) {
           </article>
         </div>
       </div>
-      <button>
+      <button onClick={() => removeProductFromCart(id)}>
         <img src={trash} alt="ícone de lixeira" />
       </button>
     </CartProductStyled>
