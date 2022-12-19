@@ -7,13 +7,13 @@ interface iCartProductProps {
   product: iCartProduct;
 }
 
-export function CartProduct({product}: iCartProductProps ) {
-  const {id, img, name, quantity} = product;
-  
+export function CartProduct({ product }: iCartProductProps) {
+  const { id, img, name, quantity } = product;
+
   return (
     <CartProductStyled>
       <div>
-        <div>
+        <div className="img-wrapper">
           <img src={img} alt={name} />
         </div>
         <div>
@@ -24,10 +24,10 @@ export function CartProduct({product}: iCartProductProps ) {
             <button>+</button>
           </article>
         </div>
-        <button>
-          <img src={trash} alt="ícone de lixeira" />
-        </button>
       </div>
+      <button>
+        <img src={trash} alt="ícone de lixeira" />
+      </button>
     </CartProductStyled>
   );
 }

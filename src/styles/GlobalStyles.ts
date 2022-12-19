@@ -18,6 +18,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   button {
+    background-color: transparent;
     border: none;
     cursor: pointer;
     text-align: center;
