@@ -1,17 +1,18 @@
 import { createContext, useEffect, useState } from "react";
 import { Outlet } from "react-router";
 import { iProduct } from "../pages/Dashboard/ProductCard";
+import { iSearchFormFields } from "../pages/Dashboard/SearchInput";
 import { api } from "../services/api";
 
 interface iCartProviderValues {
-  productsList: iProduct[];
+  searchedProducts: iProduct[];
   addProductOnCart(addedProduct: iProduct): void;
   cart: iCartProduct[];
   addQuantity(productId: number, operation: "add" | "remove"): void;
   removeProductFromCart(removedProductId: number): void;
   removeAllProducts(): void;
   sumCartProductsPrice(): number;
-  searchProducts(searchedTerm: string): void;
+  searchProducts(search: iSearchFormFields): void;
 }
 
 export interface iCartProduct extends iProduct {
@@ -22,7 +23,7 @@ export const CartContext = createContext({} as iCartProviderValues);
 
 export function CartProvider() {
   const [productsList, setProductsList] = useState([] as iProduct[]);
-  const [searchedProducts, setsearchedProducts] = useState([...productsList]);
+  const [searchedProducts, setsearchedProducts] = useState([] as iProduct[]);
   const [cart, setCart] = useState([] as iCartProduct[]);
 
   async function getProductsList() {
@@ -34,6 +35,7 @@ export function CartProvider() {
       });
 
       setProductsList(foundProducts.data);
+      setsearchedProducts([...foundProducts.data]);
     } catch (err) {}
   }
 
@@ -85,7 +87,9 @@ export function CartProvider() {
     return sum;
   }
 
-  function searchProducts(searchedTerm: string) {
+  function searchProducts(search: iSearchFormFields) {
+    const searchedTerm = search.searchedTerm;
+
     const foundProducts = productsList.filter(({name, category}) => name.includes(searchedTerm) || category.includes(searchedTerm));
 
     setsearchedProducts([...foundProducts]);
@@ -98,7 +102,7 @@ export function CartProvider() {
   return (
     <CartContext.Provider
       value={{
-        productsList,
+        searchedProducts,
         addProductOnCart,
         cart,
         addQuantity,

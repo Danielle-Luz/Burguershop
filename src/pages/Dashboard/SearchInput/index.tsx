@@ -9,7 +9,7 @@ interface iSearchInputProps {
   setToggleSearchBar: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-interface iSearchFormFields {
+export interface iSearchFormFields {
   searchedTerm: string;
 }
 
@@ -43,7 +43,7 @@ export function SearchInput({toggleSearchBar, setToggleSearchBar}: iSearchInputP
   }, []);
 
   return (
-    <SearchInputStyled ref={formRef} onSubmit={handleSubmit((data) => console.log(data))}>
+    <SearchInputStyled ref={formRef} onSubmit={handleSubmit(searchProducts)}>
       <input type="text" placeholder="Digitar pesquisa" {...register("searchedTerm")} />
       <button>
         <img src={searchIcon} alt="ícone de busca" />

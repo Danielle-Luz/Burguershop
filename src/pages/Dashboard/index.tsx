@@ -8,7 +8,7 @@ import { ProductsListWrapperStyled } from "./styles";
 
 export function Dashboard() {
   const [toggleModal, setToggleModal] = useState(false);
-  const { productsList } = useContext(CartContext);
+  const { searchedProducts } = useContext(CartContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -27,7 +27,7 @@ export function Dashboard() {
       <Header toggleModal={toggleModal} setToggleModal={setToggleModal} />
       <ProductsListWrapperStyled>
         <ul>
-          {productsList.map((product, index) => (
+          {searchedProducts.map((product, index) => (
             <ProductCard key={index} product={product} />
           ))}
         </ul>
