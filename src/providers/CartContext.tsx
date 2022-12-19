@@ -90,7 +90,7 @@ export function CartProvider() {
   function searchProducts(search: iSearchFormFields) {
     const searchedTerm = search.searchedTerm;
 
-    const foundProducts = productsList.filter(({name, category}) => name.includes(searchedTerm) || category.includes(searchedTerm));
+    const foundProducts = productsList.filter(({name, category}) => name.toLowerCase().includes(searchedTerm.toLowerCase()) || category.toLowerCase().includes(searchedTerm.toLowerCase()));
 
     setsearchedProducts([...foundProducts]);
   }
