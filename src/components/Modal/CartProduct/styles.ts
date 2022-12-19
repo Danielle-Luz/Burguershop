@@ -29,6 +29,10 @@ export const CartProductStyled = styled.li`
     }
   }
 
+  h3 {
+    text-align: start;
+  }
+
   & > div {
     display: flex;
     gap: 10px;

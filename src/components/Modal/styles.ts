@@ -67,7 +67,7 @@ export const ModalStyled = styled.div`
     list-style: none;
     max-height: 300px;
     overflow-y: auto;
-    padding-inline: 20px;
+    padding-inline: 15px;
     width: 100%;
   }
 `
