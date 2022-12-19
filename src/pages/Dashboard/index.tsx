@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { Modal } from "../../components/Modal";
+import { TitleStyled } from "../../components/Texts/styles";
 import { CartContext } from "../../providers/CartContext";
 import { Header } from "./Header";
 import { ProductCard } from "./ProductCard";
@@ -21,15 +22,17 @@ export function Dashboard() {
 
   return (
     <>
-      {
-        toggleModal && <Modal setToggleModal={setToggleModal} />
-      }
+      {toggleModal && <Modal setToggleModal={setToggleModal} />}
       <Header toggleModal={toggleModal} setToggleModal={setToggleModal} />
       <ProductsListWrapperStyled>
         <ul>
-          {searchedProducts.map((product, index) => (
-            <ProductCard key={index} product={product} />
-          ))}
+          {searchedProducts.length !== 0 ? (
+            searchedProducts.map((product, index) => (
+              <ProductCard key={index} product={product} />
+            ))
+          ) : (
+            <TitleStyled tag="h1">Nenhum produto encontrado</TitleStyled>
+          )}
         </ul>
       </ProductsListWrapperStyled>
     </>
