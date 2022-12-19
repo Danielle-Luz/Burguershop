@@ -37,7 +37,7 @@ export function Modal({setToggleModal}: iModalProps) {
               }
             </ul>
           )}
-          <CartTotal />
+          {cart.length !== 0 && <CartTotal />}
         </main>
       </article>
     </ModalStyled>
