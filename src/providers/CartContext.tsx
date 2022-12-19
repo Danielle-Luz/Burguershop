@@ -7,6 +7,7 @@ interface iCartProviderValues {
   productsList: iProduct[];
   addProductOnCart(addedProduct: iProduct): void;
   cart: iCartProduct[];
+  addQuantity(productId: number, operation: "add" | "remove"): void;
 }
 
 export interface iCartProduct extends iProduct {
@@ -44,8 +45,20 @@ export function CartProvider() {
     } else {
       setCart([...cart, {...addedProduct, quantity: 1}]);
     }
+  }
 
-    console.log(cart);
+  function addQuantity(productId: number, operation: "add" | "remove") {
+    const foundProductIndex = cart.findIndex(product => product.id === productId);
+
+    const newList = [...cart];
+
+    if(operation === "add") {
+      newList[foundProductIndex].quantity += 1;
+    } else {
+      newList[foundProductIndex].quantity -= 1;
+    }
+
+    setCart([...newList]);
   }
 
   useEffect(() => {
@@ -53,7 +66,7 @@ export function CartProvider() {
   }, []);
 
   return (
-    <CartContext.Provider value={{productsList, addProductOnCart, cart}}>
+    <CartContext.Provider value={{productsList, addProductOnCart, cart, addQuantity}}>
       <Outlet />
     </CartContext.Provider>
   );

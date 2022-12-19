@@ -1,13 +1,16 @@
-import { iCartProduct } from "../../../providers/CartContext";
+import { CartContext, iCartProduct } from "../../../providers/CartContext";
 import { TextStyled, TitleStyled } from "../../Texts/styles";
 import { CartProductStyled } from "./styles";
 import trash from "../../../assets/imgs/trash.svg";
+import { useContext } from "react";
 
 interface iCartProductProps {
   product: iCartProduct;
 }
 
 export function CartProduct({ product }: iCartProductProps) {
+  const { addQuantity } = useContext(CartContext);
+
   const { id, img, name, quantity } = product;
 
   return (
@@ -19,9 +22,11 @@ export function CartProduct({ product }: iCartProductProps) {
         <div>
           <TitleStyled tag="h3">{name}</TitleStyled>
           <article>
-            <button>-</button>
-            <TextStyled tag="span" gray={0} weight={400}>{quantity}</TextStyled>
-            <button>+</button>
+            <button onClick={() => addQuantity(id, "remove")}>-</button>
+            <TextStyled tag="span" gray={0} weight={400}>
+              {quantity}
+            </TextStyled>
+            <button onClick={() => addQuantity(id, "add")}>+</button>
           </article>
         </div>
       </div>

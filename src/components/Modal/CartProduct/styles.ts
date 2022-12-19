@@ -42,7 +42,8 @@ export const CartProductStyled = styled.li`
   }
 
   article {
-    background-color: ${({ theme }: iCartProductStyledProps) => theme.colors.gray[3]};
+    background-color: ${({ theme }: iCartProductStyledProps) =>
+      theme.colors.gray[3]};
     border-radius: 0;
     display: flex;
     justify-content: space-between;
@@ -56,8 +57,9 @@ export const CartProductStyled = styled.li`
     }
 
     button {
-      color: ${({theme}: iCartProductStyledProps) => theme.colors.brand.primary[0]};
-      font-size: ${({theme}: iCartProductStyledProps) => theme.fontSizes[1]};
+      color: ${({ theme }: iCartProductStyledProps) =>
+        theme.colors.brand.primary[0]};
+      font-size: ${({ theme }: iCartProductStyledProps) => theme.fontSizes[1]};
       flex-grow: 1;
     }
   }

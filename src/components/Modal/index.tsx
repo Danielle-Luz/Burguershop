@@ -32,7 +32,7 @@ export function Modal({setToggleModal}: iModalProps) {
           ) : (
             <ul>
               {
-                cart.map(product => <CartProduct product={product} />)
+                cart.map(product => <CartProduct key={product.id} product={product} />)
               }
             </ul>
           )}
